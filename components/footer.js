@@ -1,29 +1,38 @@
-import Container from "./container";
+// components/footer.js
 
-export default function Footer() {
-  return (
-    <footer className="bg-accent-1 border-t border-accent-2">
-      <Container>
-        <div className="py-28 flex flex-col lg:flex-row items-center">
-          <h3 className="text-4xl lg:text-5xl font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
-            Statically Generated with Next.js.
-          </h3>
-          <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
-            <a
-              href="https://www.datocms.com/docs/next-js"
-              className="mx-3 bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-3 px-12 lg:px-8 duration-200 transition-colors mb-6 lg:mb-0"
-            >
-              Read Documentation
-            </a>
-            <a
-              href="https://github.com/datocms/nextjs-demo"
-              className="mx-3 font-bold hover:underline"
-            >
-              View on GitHub
-            </a>
-          </div>
-        </div>
-      </Container>
-    </footer>
-  );
-}
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Link from 'next/link'
+import Script from 'next/script'
+
+import Image from 'next/image'
+import logotipo from '../public/logo.webp'
+
+import styles from '../styles/Footer.module.scss'
+
+function Footer()  {
+    return (
+      <>
+        <footer className={styles.footer}>
+            <Container>
+                <Row>
+                    <Col sm={6} className={styles.alignLeft + ' text-center text-md-start'}>
+                      <Image src={logotipo} alt="Hayman-Woodward" quality='100' className={styles.logo + ' '}/>
+                    </Col>
+                    <Col sm={6} className={styles.alignRight + ' text-center text-md-end'}>
+                      HAYMAN-WOODWARD IMMIGRATION LAW FIRM LLP is a United States-based immigration law firm. With its global headquarters positioned in the heart of Washington, D.C., HAYMAN-WOODWARD IMMIGRATION LAW FIRM LLP is dedicated to supporting individuals and business entities in its quest to BUILD VALUE ACROSS BORDERS. HAYMAN-WOODWARD is a trade name used under license from HAYMAN-WOODWARD Holdings Inc. and does not in any way makes reference to former or current named partner or specific lawyer in the practice.
+                      <br />
+                      <strong className='mt-2 d-block'>© HAYMAN-WOODWARD IMMIGRATION LAW FIRM LLP - is a Washington, D.C. based law firm - Practice is limited to immigration and International Business law.</strong>
+                    </Col>
+                    <Col sm={12} className={styles.alignCenter + ' text-center py-5'}>
+                    © 2023 Hayman-Woodward designed by <span>Hay Branding</span>.
+                    </Col>
+                </Row>
+            </Container>
+        </footer>
+      </>
+    );
+  }
+
+export default Footer;
